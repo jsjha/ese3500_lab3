@@ -18,9 +18,17 @@
 
 ## Question 1
 
+f = 2 * (16 MHz) / (1024 * 256) = 61.04 Hz
+
+On the oscilloscope we see a frequency of 30.6 Hz; however, which is half of the frequency at which we fire an interrrupt. This is because it takes two interrupts for one cycle (on/off) of the D6 port. Our code uses an exclusive or, so after one interrupt pin D6 is high, after two pin D6 is low. Thus, it takes two interrupts to create one cycle on pin D6, which is why our oscillscope reads a frequency which is half the frequency of an interrupt.
+
 ## Question 2
 
+
+
 ## Question 3
+
+
 
 ## Question 4
 
