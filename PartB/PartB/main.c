@@ -32,7 +32,7 @@ void Initialize ()
 	TCCR0B |= (1 << CS02);
 	
 	// Uses the formula f_generated = (f_clock) / (2 * Prescaler * (1 + OCRnA))
-	OCR0A = 70;
+	OCR0A = 71;
 
 	// Enable all global interrupts
 	sei();
@@ -44,7 +44,7 @@ void Initialize ()
 //}
 
 ISR(TIMER0_COMPA_vect) {
-	OCR0A += 70;
+	OCR0A += 71;
 	PORTD ^= (1 << PORTD6);
 }
 
