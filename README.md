@@ -106,15 +106,93 @@ int main(void)
 
 ## Question 7
 
+The OCR0A value should be 71, which I calculated by using the formula: OCRnA = ((f_clock) / (2 * Prescaler * (f_desired)) - 1), where f_clock is 16 MHz, the Prescaler is 256, and f_desired is 440 Hz. 
+
 ## Question 8
+
+```void Initialize ()
+{
+	// Disable all global interrupts initially
+	cli();
+	
+	// Set PB1 as output pin for the LED
+	DDRD |= (1 << DDD6);
+	
+	// Set clock source for Timer 0 with prescaler of 256
+	TCCR0B |= (1 << CS02);
+	
+	// Set Timer 1 to CTC (Clear Timer on Compare Match)
+	TCCR0A = (1 << WGM01);
+	
+	// Toggle OC1A on Compare Match
+	TCCR0A |= (1 << COM0A0);
+	
+	// Uses the formula OCRnA = ((f_clock) / (2 * Prescaler * (f_desired)) - 1)
+	OCR0A = 71;
+
+	// Enable all global interrupts
+	sei();
+}
+
+
+int main(void)
+{
+	Initialize();
+	while (1);
+}
+```
 
 ## Question 9
 
+![Alt text](image-2.png)
+
 ## Question 10
+
+The OCR0A value should be 35, which I calculated by using the formula: 2*OCRnA = (f_clock) / (2 * Prescaler * (f_desired), where f_clock is 16 MHz, the Prescaler is 256, and f_desired is 440 Hz. We have the extra 2 in the equation because the frequency on the oscilliscope is twice the PWM frequency (because of similar reasoning to the interrupts).
 
 ## Question 11
 
+```
+#define F_CPU 16000000UL
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+void Initialize ()
+{
+	// Disable all global interrupts initially
+	cli();
+	
+	// Set PB1 as output pin for the LED
+	DDRD |= (1 << DDD6);
+	
+	// Set clock source for Timer 0 with prescaler of 256
+	TCCR0B |= (1 << CS02);
+	
+	// Set Timer 1 to PWM Phase Match
+	TCCR0A |= (1 << WGM00);
+	TCCR0B |= (1 << WGM02);
+	
+	// Toggle OC1A on Compare Match
+	TCCR0A |= (1 << COM0A0);
+	
+	// Uses the formula OCRnA = ((f_clock) / (2 * Prescaler * (f_desired))
+	OCR0A = 35;
+
+	// Enable all global interrupts
+	sei();
+}
+
+
+int main(void)
+{
+	Initialize();
+	while (1);
+}
+```
+
 ## Question 12
+
+![Alt text](image-3.png)
 
 ## Question 13
 
