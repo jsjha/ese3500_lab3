@@ -27,7 +27,7 @@ void Initialize ()
 	TCCR0A |= (1 << COM0A0);
 	
 	// Uses the formula TOP = ((f_clock) / (2 * Prescaler * (f_desired))
-	OCR0A = 71;
+	OCR0A = 140;
 
 	// Enable all global interrupts
 	sei();
