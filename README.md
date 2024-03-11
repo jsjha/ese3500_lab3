@@ -195,25 +195,37 @@ int main(void)
 ![Alt text](image-3.png)
 
 ## Question 13
+The trigger needes to send a high pulse for at least 10us.
 
 ## Question 14
+The trigger pin is used to send a high pulse, while the echo pin recieves signal that are reflected back by objects infront of the sensor.
 
 ## Question 15
 
+2.47 cm
+
 ## Question 16
+
+![Alt text](image-4.png)
 
 ## Question 17
 
+56.79 cm
+
 ## Question 18
+
+![Alt text](image-5.png)
 
 ## Question 19
 
 | **Note**  | **C6** | **D6** | **E6** | **F6** | **G6** | **A6** | **B6** | **C7** |
 |---------- |------- |------- |------- |------- |------- |------- |------- |------- |
 | Freq (Hz) |  1046  |  1174  |  1318  |  1397  |  1568  |  1760  |  1975  |  2093  |
-| OCR0A     |        |        |        |        |        |        |        |        |
+| OCR0A     |   29   |   26   |   23   |   22   |   19   |   17   |   15   |   14   |
 
 ## Question 20
+
+OCR0A =  0.276*(SENSOR_VALUE) + 13.326
 
 ## Question 21
 
