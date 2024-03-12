@@ -237,7 +237,7 @@ Max: 975
 
 | **ADC Ranges**  | **Duty Cycle** |
 |---------------- |--------------- |
-|      0-95.9     | 5%             |
+|     16.0-95.9     | 5%             |
 |    95.9-191.8   | 10%            |
 |   191.8-287.7   | 15%            |
 |   287.7-383.6   | 20%            |
@@ -249,11 +249,8 @@ Max: 975
 |   863.1-975.0   | 50%            |
 
 ## Question 23
+![Alt text](image-6.png)
 
 ## Question 24
+https://drive.google.com/file/d/10ZeaOOoS0jCx8uLItOaQKdaTDWpEbYLG/view?usp=drivesdk
 
-## Question 25
-
-## Question 26
-
-## Question 27
