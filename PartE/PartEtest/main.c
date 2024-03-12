@@ -1,7 +1,7 @@
 /*
- * PartD2.c
+ * PartD.c
  *
- * Created: 3/11/2024 11:35:01 AM
+ * Created: 3/10/2024 8:18:41 PM
  * Author : jessijha
  */ 
 
@@ -28,7 +28,7 @@ void Initialize()
 	// Disable all global interrupts initially
 	cli();
 	
-	// Set PB1 as output pin for the LED
+	// Set PD6 as output pin for the LED
 	DDRD |= (1 << DDD6);
 	
 	// Set clock source for Timer 0 with prescaler of 256
@@ -112,34 +112,14 @@ int main(void)
 		//PORTB &= ~(1 << PORTB1);
 		//_delay_ms(50);
 		
-		//// Continue sending pulses to the trigger pin
+		//// Continue sending pulses to the trigger pin 
 		if (isReady == 1) {
 			// We will use this value to calculate the distance traveled
 			// Formula: speed of sound in cm/s * prescaler * duration (in ticks) / 16 MHz
 			distance = (343.0d * 100.0d * 1.0d * duration) / F_CPU / 2.0d;
 			
-			// We have a range of distances between 2.47 and 56.79 --> Divide the value of this range by 8
-			// and assign OCR0A values according to the distance the object is in front of the sensor.
-			
-			if (distance < 9.26) {
-				OCR0A = 14;
-			} else if (distance >= 9.26 && distance < 16.05) {
-				OCR0A = 15;
-			} else if (distance >= 16.05 && distance < 22.84) {
-				OCR0A = 17;
-			} else if (distance >= 22.84 && distance < 29.63) {
-				OCR0A = 19;
-			} else if (distance >= 29.63 && distance < 36.42) {
-				OCR0A = 22;
-			} else if (distance >= 36.42 && distance < 43.21) {
-				OCR0A = 23;
-			} else if (distance >= 43.21 && distance < 50.0) {
-				OCR0A = 26;
-			} else if (distance >= 50.0 && distance <= 56.79) {
-				OCR0A = 29;
-			} else {
-				OCR0A = 14;
-			}
+			// Set the OCR0A so that the frequency of the buzzer changes
+			OCR0A = (int) (0.276*(distance) + 13.326);
 
 			
 			// Print Distance to Serial Monitor
@@ -156,3 +136,4 @@ int main(void)
 		}
 	}
 }
+

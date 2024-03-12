@@ -13,7 +13,7 @@ void Initialize ()
 	// Disable all global interrupts initially
 	cli();
 	
-	// Set PB1 as output pin for the LED
+	// Set PB1 as output pin for the Buzzer
 	DDRD |= (1 << DDD6);
 	
 	// Set clock source for Timer 0 with prescaler of 256
